@@ -5,15 +5,14 @@ console.log("%cJS Lab Connected — Start completing the TODOs!", "font-weight:b
 // ==========================
 
 // Task 2.1 — declare & reassign
-// Create let course = "CIS101"; display it usinng console.log(course), reassign to "CIS102"; display it again.
-// write code here
-
+let course = "CIS101";
+console.log("Initial course:", course);
+course= "CIS102";
+console.log("Reassigned course:", course);
 
 // Task 2.2 — const safety
-// Create const SCHOOL = "MyCollege"; then TRY to reassign it and observe the Console error. Add a comment explaining    why  reassignment fails.
-// NOTE: For now, keep the reassignment line commented so the file runs without errors.
-// const SCHOOL = "MyCollege";
-// SCHOOL = "OtherCollege"; // <-- Uncomment to see the error, then re-comment after testing
+ const SCHOOL = "MyCollege";
+// SCHOOL = "OtherCollege"; // we cannot reassign the value of a constant, it will throw an error
 
 
 // ==========================
@@ -21,58 +20,75 @@ console.log("%cJS Lab Connected — Start completing the TODOs!", "font-weight:b
 // ==========================
 
 // Task 3.1 — arithmetic basics
-// Given let x = 8, y = 3; log x+y, x-y, x*y, x/y, x%y.
-// write code here
-
+let x = 8, y = 3;
+console.log("x + y =", x+y)
+console.log("x - y = ", x-y)
+console.log("x * y = ", x * y)
+console.log("x / y = ", x / y)
+console.log("x % y = ", x%y);
 
 // Task 3.2 — number vs string
-// Display results of "2" + 3, 2 + "3", and 2 + 3. Add a short comment: why do the first two concatenate?
-// write code here
-
-
-// Read chapter 4 in zyBooks: Compound Assignment Operators
-
-
+// the first two concatenate because of the string ( '+' acts as concatination)
+console.log('result of "2" + 3 is:', "2" + 3)
+console.log('result of 2 + "3" is:', 2 + "3")
+console.log('result of 2 + 3 is:', 2 + 3)
 
 // ==========================
 // TODO-4: CONDITIONALS (CORE)
 // ==========================
 
 // Task 4.1 — else-if ladder
-// Write a program that checks a user's age (take age input from user).
-//       Use if–else if–else statements to categorize and log:
-//         - "Child" if age < 13
-//         - "Young" if age is between 13 and 35
-//         - "Aged" if age > 35
-// write code here
-
+let ageInput = prompt("Enter your age: ");
+let age= Number(ageInput);
+if (age < 13) {
+    console.log("Child");
+} else if (age <= 35) {
+    console.log("Young");
+} else {
+    console.log("Aged");
+}
 
 // Task 4.2 — Switch statement
-// Create a variable let day = "Mon".
-//       Use a switch statement to check the value of day.
-//         - If it is "Mon", "Tue", "Wed", "Thu", or "Fri", log "weekday".
-//         - If it is "Sat" or "Sun", log "weekend".
-//         - For any other value, log "unknown".
-// write code here
-
-// Read Chapter 4 in zyBooks: Conditional (ternary) operator
-
+let day ="Mon"
+switch (day) {
+    case "Mon":
+    case "Tue":
+    case "Wed":
+    case "Thu":
+    case "Fri":
+        console.log("weekday")
+        break;
+    case "Sat":
+    case "Sun":
+        console.log("weekend")
+        break;
+        default:
+            console.log("unknown")
+}
 // ===============
 // TODO-5: LOOPS
 // ===============
 
 // Task 5.1 — for loop sum
 // TODO: Sum integers 1..10 with a for loop; display the result of total sum.
-// write code here
-
+let sum = 0 ;
+for (let i = 1; i < 11; i++) {
+    sum += i;
+}
+console.log("The sum is: " ,sum);
 
 // Task 5.2 — while loop
-// let t = 3; while(t > 0), decrement the value t variable in each iteration and display the result.
-// write code here
-
-
+let t=3;
+while (t>0) {
+    console.log("The current value oft is: ",t);
+    t--;
+}
 // Read Chapter 4 in zyBooks: Do-While Loop
-// write code here
+let j = 1
+do {
+    j++;
+} while (j<5);
+console.log("The output od the do while loop is ",j);
 
 
 // =============================
@@ -80,23 +96,29 @@ console.log("%cJS Lab Connected — Start completing the TODOs!", "font-weight:b
 // =============================
 
 // Task 6.1 — pure function + return
-// Make a function add(a,b){ return a+b; } display the result of add(2,5).
-// write code here
+function add(a,b) {
+    return a+b;
+}
+console.log("Output of the add function is: ",add(2,5));
+
 
 
 // Task 6.2 — Arrow functions
 // Make an arrow function; const cube = n => n*n*n; cube(3)
-// write code here
-
+const cube = n => n * n * n;
+console.log("Output of the cube function is: ", cube(3))
 
 // =================================
 // TODO-7: SCOPE & GLOBAL OBJECT (ESSENTIALS)
 // =================================
 
 // Task 7.1 — var vs let scope
-// Declare var a = 1; let b = 2 inside a block { },  then try displaying both outside the block; observe differences.
-// write code here
-
+ {
+    var a = 1; // function scoped
+    let b = 2; // block scoped
+}
+console.log("displaying a: ",a) // we can display the var
+// console.log("displaying b: ",b) // we cannot display the let
 
 // ==================
 // TODO-8: ARRAYS (CORE)
@@ -104,7 +126,10 @@ console.log("%cJS Lab Connected — Start completing the TODOs!", "font-weight:b
 
 // Task 8.1 — create & mutate
 // TODO: let nums = [3,1,4]; then push(1), unshift(9), pop(); log final array and length.
-// write code here
-
+let nums = [3,1,4]
+nums.push(1)
+nums.unshift(9)
+nums.pop()
+console.log ("num array is: ", nums, "the length is: ",nums.length )
 
 // End of manual — great job! Keep this file open and work task by task.
